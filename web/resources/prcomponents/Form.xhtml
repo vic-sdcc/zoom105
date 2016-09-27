@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:composite="http://java.sun.com/jsf/composite"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <composite:interface>
+        <composite:attribute name="selectedPerson"/>
+        <composite:attribute name="canNotInput"/>
+    </composite:interface>
+    <composite:implementation>
+        <h:panelGroup id="viewPanel" >
+            <h:form id="viewForm">
+                <div style="margin: 0% auto; min-width: 100%;">
+                    <div style="margin: 0% auto; 
+                         position: relative; 
+                         width: 100%;
+                         font-size: small;">
+                        <p:fieldset id="printComponent1" style="border: none; background: transparent" >
+                            <br/>
+                            <p:panel style="border: none" rendered="#{not onBodyLoad.agent.isMobile()}">
+                                <center>
+                                    <p>
+                                        <table>
+                                            <tr>
+                                                <td rowspan="2">
+                                                    <p:graphicImage value="#{coopFormLogo.coopLogo}" width="120" height="120"/>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <center>
+                                                                        <strong>
+                                                                            <p:outputLabel value="#{formHeader.infoList[0].name}"/>
+                                                                        </strong>
+                                                                    </center>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <center>
+                                                                        <p:outputLabel value="#{formHeader.infoList[0].address}"/>
+                                                                    </center>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <p:outputLabel value="Tel. #{formHeader.infoList[0].telephone} " rendered="#{not empty formHeader.infoList[0].telephone}"/>
+                                                                    <p:outputLabel value="Telefax: #{formHeader.infoList[0].telefax} " rendered="#{not empty formHeader.infoList[0].telefax}"/>
+                                                                    <p:outputLabel value="Email: " rendered="#{not empty formHeader.infoList[0].email1}"/>
+                                                                </td>
+                                                                <td>
+                                                                    <p:outputLabel value=" #{formHeader.infoList[0].email1}"/>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <p:outputLabel value="&nbsp;"/>
+                                                                </td>
+                                                                <td>
+                                                                    <p:outputLabel value=" #{formHeader.infoList[0].email2}"/>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <p:outputLabel value="&nbsp;"/>
+                                                                </td>
+                                                                <td>
+                                                                    <p:outputLabel value=" #{formHeader.infoList[0].email3}"/>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </center>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </p>
+                                </center>
+                            </p:panel>
+                        </p:fieldset>
+                    </div>
+                </div>
+            </h:form>
+        </h:panelGroup>
+    </composite:implementation>
+</html>
